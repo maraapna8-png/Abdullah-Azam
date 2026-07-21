@@ -1,0 +1,100 @@
+import React from 'react';
+import {
+  Stethoscope,
+  UserRoundCheck,
+  Activity,
+  ShieldAlert,
+  HeartPulse,
+  CalendarClock,
+  Award,
+  Smile,
+  Sliders,
+  Cpu,
+  Heart,
+  Banknote,
+  Phone,
+  MapPin,
+  Mail,
+  Star,
+  Check,
+  ChevronDown,
+  ChevronUp,
+  Clock,
+  Lock,
+  Shield,
+  Calendar,
+  User,
+  Plus,
+  Search,
+  Menu,
+  X,
+  Bell,
+  Trash,
+  Eye,
+  LogOut,
+  Filter,
+  CheckCircle,
+  CalendarCheck,
+  UserCheck,
+  FileSpreadsheet,
+  AlertCircle,
+  Map,
+  ArrowRight,
+  UserCheck2,
+  Stethoscope as DefaultIcon
+} from 'lucide-react';
+
+const iconMap: Record<string, React.ComponentType<any>> = {
+  Stethoscope,
+  UserRoundCheck,
+  Activity,
+  ShieldAlert,
+  HeartPulse,
+  CalendarClock,
+  Award,
+  Smile,
+  Sliders,
+  Cpu,
+  Heart,
+  Banknote,
+  Phone,
+  MapPin,
+  Mail,
+  Star,
+  Check,
+  ChevronDown,
+  ChevronUp,
+  Clock,
+  Lock,
+  Shield,
+  Calendar,
+  User,
+  Plus,
+  Search,
+  Menu,
+  X,
+  Bell,
+  Trash,
+  Eye,
+  LogOut,
+  Filter,
+  CheckCircle,
+  CalendarCheck,
+  UserCheck,
+  FileSpreadsheet,
+  AlertCircle,
+  Map,
+  ArrowRight,
+  UserCheck2
+};
+
+interface LucideIconProps extends React.SVGProps<SVGSVGElement> {
+  name: string;
+  size?: number;
+  className?: string;
+}
+
+export default function LucideIcon({ name, size = 24, className = '', ...props }: LucideIconProps) {
+  const IconComponent = iconMap[name] || DefaultIcon;
+  return <IconComponent size={size} className={className} {...props} />;
+}

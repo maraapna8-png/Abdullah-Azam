@@ -1,0 +1,6 @@
+{
+  "name": "Dr. Abdullah",
+  "description": "Professional healthcare and clinic website for Dr. Abdullah, providing compassionate and excellent medical care.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
