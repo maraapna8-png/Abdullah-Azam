@@ -61,8 +61,23 @@ export default function Footer({ onViewPortal }: FooterProps) {
                   <a href={`tel:${CLINIC_INFO.phone}`} className="text-white hover:text-emerald-400 font-bold block">
                     {CLINIC_INFO.phone}
                   </a>
-                  <span className="text-[11px] text-slate-500 font-semibold uppercase block">Morning & Evening sessions</span>
+                  <span className="text-[11px] text-slate-500 font-semibold uppercase block">Call & Helpline</span>
                 </div>
+              </div>
+
+              <div className="flex items-start space-x-2.5">
+                <a
+                  href={`https://wa.me/${CLINIC_INFO.whatsappRaw}?text=${encodeURIComponent('Hello Dr. Abdullah, I am contacting you from the clinic website.')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start space-x-2.5 text-slate-400 hover:text-emerald-400 transition-colors"
+                >
+                  <span className="w-4 h-4 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">W</span>
+                  <div>
+                    <span className="text-white hover:text-emerald-400 font-bold block">{CLINIC_INFO.whatsapp}</span>
+                    <span className="text-[11px] text-emerald-400 font-semibold uppercase block">Official WhatsApp</span>
+                  </div>
+                </a>
               </div>
 
               <div className="flex items-start space-x-2.5">

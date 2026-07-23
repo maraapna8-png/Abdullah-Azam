@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Shield, Lock } from 'lucide-react';
 import { CLINIC_INFO } from '../data';
+import doctorImageSrc from '../assets/images/user_abdullah_photo_1784796792971.jpg';
 
 interface NavbarProps {
   onBookClick: () => void;
@@ -56,7 +57,7 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-10 h-10 rounded-xl overflow-hidden border border-blue-200 shadow-sm shrink-0">
               <img
-                src="/src/assets/images/dr_abdullah_portrait_1784790513715.jpg"
+                src={doctorImageSrc}
                 alt="Dr. Abdullah"
                 className="w-full h-full object-cover object-top"
                 referrerPolicy="no-referrer"
@@ -129,7 +130,18 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
             )}
 
             {/* CTA Buttons */}
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-3">
+              <a
+                href={`https://wa.me/${CLINIC_INFO.whatsappRaw}?text=${encodeURIComponent('Hello Dr. Abdullah, I want to inquire about appointment availability.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-200 font-bold text-xs px-3 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5"
+                title="WhatsApp 03430277466"
+              >
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>WhatsApp</span>
+              </a>
+
               <button
                 onClick={onViewPortal}
                 className={`p-2 rounded-lg border transition-all text-xs font-medium flex items-center gap-1.5 ${
@@ -146,7 +158,7 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
 
               <button
                 onClick={onBookClick}
-                className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-5 py-2.5 rounded-xl transition-all cursor-pointer shadow-sm"
+                className="bg-blue-600 hover:bg-blue-700 text-white font-bold text-sm px-4 py-2 rounded-xl transition-all cursor-pointer shadow-sm"
                 id="btn-book-desktop"
               >
                 Book Appointment

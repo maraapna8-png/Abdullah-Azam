@@ -1,15 +1,13 @@
 import { CLINIC_INFO } from '../data';
 import { ShieldCheck, UserCheck2, Clock, MapPin, ArrowRight } from 'lucide-react';
+import doctorImageSrc from '../assets/images/user_abdullah_photo_1784796792971.jpg';
+import heroBgSrc from '../assets/images/hero_clinic_bg_1784609750809.jpg';
 
 interface HeroProps {
   onBookClick: () => void;
 }
 
 export default function Hero({ onBookClick }: HeroProps) {
-  // Use the generated medical background image path and Dr. Abdullah portrait image path
-  const heroBgSrc = '/src/assets/images/hero_clinic_bg_1784609750809.jpg';
-  const doctorImageSrc = '/src/assets/images/dr_abdullah_portrait_1784790513715.jpg';
-
   return (
     <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-50">
       {/* Background image overlay */}

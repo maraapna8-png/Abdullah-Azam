@@ -23,7 +23,8 @@ import {
   LogOut,
   CalendarCheck,
   Eye,
-  EyeOff
+  EyeOff,
+  MessageCircle
 } from 'lucide-react';
 
 interface DoctorDashboardProps {
@@ -457,9 +458,27 @@ export default function DoctorDashboard({ onClose }: DoctorDashboardProps) {
                       </td>
 
                       {/* Contact Info */}
-                      <td className="py-4 px-6 space-y-0.5">
+                      <td className="py-4 px-6 space-y-1">
                         <span className="block font-bold text-slate-800">{b.phoneNumber}</span>
                         <span className="block text-slate-400 text-[10px] font-semibold">{b.email}</span>
+                        <div className="flex items-center gap-1.5 pt-0.5">
+                          <a
+                            href={`https://wa.me/${b.phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hello ${b.patientName}, regarding your appointment (ID: ${b.id}) with Dr. Abdullah...`)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[10px] bg-emerald-50 text-emerald-700 hover:bg-emerald-100 px-2 py-0.5 rounded font-bold transition-colors"
+                            title="Chat with patient on WhatsApp"
+                          >
+                            <MessageCircle size={10} /> WhatsApp
+                          </a>
+                          <a
+                            href={`mailto:${b.email}?subject=${encodeURIComponent(`Appointment Status ID ${b.id} - Dr. Abdullah Clinic`)}&body=${encodeURIComponent(`Dear ${b.patientName},\n\nRegarding your appointment slot on ${b.preferredDate} (${b.preferredTime})...\n\nBest regards,\nDr. Abdullah Clinic`)}`}
+                            className="inline-flex items-center gap-1 text-[10px] bg-blue-50 text-blue-700 hover:bg-blue-100 px-2 py-0.5 rounded font-bold transition-colors"
+                            title="Send Email to patient"
+                          >
+                            <Mail size={10} /> Gmail
+                          </a>
+                        </div>
                       </td>
 
                       {/* Slot details */}

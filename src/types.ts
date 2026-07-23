@@ -8,6 +8,8 @@ export interface Appointment {
   message?: string;
   status: 'Pending' | 'Approved' | 'Completed' | 'Cancelled';
   createdAt: string;
+  whatsappNotified?: boolean;
+  emailSent?: boolean;
 }
 
 export interface Service {

@@ -4,7 +4,9 @@ export const CLINIC_INFO = {
   doctorName: "Dr. Abdullah",
   title: "General Physician & Consultant",
   tagline: "Providing Quality Healthcare with Compassion and Excellence.",
-  phone: "03430277122",
+  phone: "03430277466",
+  whatsapp: "03430277466",
+  whatsappRaw: "923430277466",
   email: "dr.abdullah.dik@gmail.com",
   address: "Eid Gaah Road, Dera Ismail Khan, Pakistan",
   aboutShort: "Dr. Abdullah is a highly dedicated and experienced healthcare professional committed to providing top-quality, compassionate medical care to families in Dera Ismail Khan and surrounding regions. With a focus on preventive wellness, accurate diagnostic assessments, and personalized therapy, Dr. Abdullah ensures every patient receives custom-tailored medical attention in a friendly, trusting atmosphere.",
@@ -155,7 +157,7 @@ export const FAQS: FAQItem[] = [
   {
     id: "faq4",
     question: "How can I contact the clinic?",
-    answer: "You can call us directly at 03430277122 or visit the clinic at Eid Gaah Road, Dera Ismail Khan, Pakistan. You can also book appointments directly using the interactive booking form on this website!"
+    answer: "You can call us or WhatsApp us directly at 03430277466 or visit the clinic at Eid Gaah Road, Dera Ismail Khan, Pakistan. You can also book appointments directly using the interactive booking form on this website!"
   }
 ];
 

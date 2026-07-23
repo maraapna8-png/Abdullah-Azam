@@ -1,5 +1,6 @@
 import { CLINIC_INFO } from '../data';
 import { Heart, ShieldCheck, Award, ThumbsUp } from 'lucide-react';
+import doctorImageSrc from '../assets/images/user_abdullah_photo_1784796792971.jpg';
 
 export default function About() {
   return (
@@ -27,7 +28,7 @@ export default function About() {
                 {/* Doctor Portrait Image */}
                 <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-emerald-400/40 shadow-lg mb-6 shrink-0">
                   <img
-                    src="/src/assets/images/dr_abdullah_portrait_1784790513715.jpg"
+                    src={doctorImageSrc}
                     alt={CLINIC_INFO.doctorName}
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
