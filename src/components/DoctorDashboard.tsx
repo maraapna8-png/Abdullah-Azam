@@ -29,11 +29,6 @@ interface DoctorDashboardProps {
 }
 
 export default function DoctorDashboard({ onClose }: DoctorDashboardProps) {
-  // Authentication states
-  const [passcode, setPasscode] = useState('');
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loginError, setLoginError] = useState('');
-
   // Core Data States
   const [bookings, setBookings] = useState<Appointment[]>([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -51,22 +46,7 @@ export default function DoctorDashboard({ onClose }: DoctorDashboardProps) {
     const loadedAnnouncement = localStorage.getItem('dr_abdullah_announcement') || '';
     setAnnouncement(loadedAnnouncement);
     setAnnouncementInput(loadedAnnouncement);
-  }, [isAuthenticated]);
-
-  const handleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (passcode === '12345' || passcode.toLowerCase() === 'abdullah123') {
-      setIsAuthenticated(true);
-      setLoginError('');
-    } else {
-      setLoginError('Invalid Passcode. Please use the demo passcode: 12345');
-    }
-  };
-
-  const handleLogout = () => {
-    setIsAuthenticated(false);
-    setPasscode('');
-  };
+  }, []);
 
   // Status Modifiers
   const updateStatus = (id: string, newStatus: Appointment['status']) => {
@@ -162,69 +142,6 @@ export default function DoctorDashboard({ onClose }: DoctorDashboardProps) {
   const approvedCount = bookings.filter((b) => b.status === 'Approved').length;
   const completedCount = bookings.filter((b) => b.status === 'Completed').length;
 
-  if (!isAuthenticated) {
-    return (
-      <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-md flex items-center justify-center p-4">
-        <div className="bg-white rounded-3xl p-6 sm:p-10 max-w-md w-full border border-slate-100 shadow-2xl space-y-6">
-          <div className="text-center space-y-3">
-            <div className="w-14 h-14 bg-gradient-to-tr from-blue-900 to-blue-700 text-white rounded-2xl flex items-center justify-center mx-auto shadow-md">
-              <Lock size={26} />
-            </div>
-            <h3 className="text-2xl font-extrabold text-blue-950 tracking-tight">Doctor Portal Secure Sign-In</h3>
-            <p className="text-xs text-slate-500 font-medium">
-              Access Dr. Abdullah's clinic scheduling log, manage appointments, and configure announcements.
-            </p>
-          </div>
-
-          <form onSubmit={handleLogin} className="space-y-4">
-            <div className="space-y-1.5">
-              <label htmlFor="passcode" className="block text-xs font-bold text-slate-500 uppercase tracking-wide">
-                Secure Access Passcode
-              </label>
-              <input
-                type="password"
-                id="passcode"
-                placeholder="•••••"
-                value={passcode}
-                onChange={(e) => setPasscode(e.target.value)}
-                className="w-full px-4 py-3 bg-slate-50 border border-slate-100 rounded-xl text-center text-lg font-bold tracking-widest text-slate-800 placeholder-slate-300 focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all"
-                autoFocus
-              />
-            </div>
-
-            {loginError && (
-              <p className="text-red-500 text-xs font-bold flex items-center gap-1 justify-center bg-red-50 p-2.5 rounded-lg border border-red-100">
-                <AlertCircle size={14} />
-                {loginError}
-              </p>
-            )}
-
-            <div className="bg-blue-50 border border-blue-100 text-blue-800 rounded-xl p-3.5 text-xs text-center">
-              <span className="font-bold block">Preview Security Token</span>
-              <span className="font-semibold block mt-0.5">Use passcode: <strong className="text-blue-900 text-sm">12345</strong></span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3 pt-2">
-              <button
-                type="button"
-                onClick={onClose}
-                className="px-4 py-3 border border-slate-200 hover:bg-slate-50 text-slate-600 font-bold text-sm rounded-xl transition-colors cursor-pointer"
-              >
-                Cancel
-              </button>
-              <button
-                type="submit"
-                className="px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-extrabold text-sm rounded-xl shadow-md cursor-pointer"
-              >
-                Authenticate
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="min-h-screen bg-slate-100 pt-24 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -244,16 +161,10 @@ export default function DoctorDashboard({ onClose }: DoctorDashboardProps) {
           <div className="flex items-center gap-3">
             <button
               onClick={onClose}
-              className="px-4 py-2.5 bg-slate-50 hover:bg-slate-100 border border-slate-200 text-slate-700 font-bold text-xs rounded-xl transition-all cursor-pointer"
-            >
-              Public Home
-            </button>
-            <button
-              onClick={handleLogout}
-              className="px-4 py-2.5 bg-red-50 hover:bg-red-100 border border-red-200 text-red-700 font-bold text-xs rounded-xl transition-all cursor-pointer flex items-center gap-1"
+              className="px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs rounded-xl transition-all cursor-pointer shadow-sm flex items-center gap-1.5"
             >
               <LogOut size={14} />
-              Sign Out
+              Exit Doctor Portal
             </button>
           </div>
         </div>

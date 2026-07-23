@@ -53,9 +53,14 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo Branding */}
-          <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-sm">
-              A
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+            <div className="w-10 h-10 rounded-xl overflow-hidden border border-blue-200 shadow-sm shrink-0">
+              <img
+                src="/src/assets/images/dr_abdullah_portrait_1784790513715.jpg"
+                alt="Dr. Abdullah"
+                className="w-full h-full object-cover object-top"
+                referrerPolicy="no-referrer"
+              />
             </div>
             <div>
               <span className="text-xl font-bold text-blue-900 block tracking-tight">

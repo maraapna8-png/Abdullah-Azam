@@ -24,9 +24,14 @@ export default function About() {
                   Senior Consultant
                 </div>
 
-                {/* Avatar Placeholder with Initials */}
-                <div className="w-20 h-20 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center font-bold text-3xl mb-6 shadow-inner text-emerald-300">
-                  DA
+                {/* Doctor Portrait Image */}
+                <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-emerald-400/40 shadow-lg mb-6 shrink-0">
+                  <img
+                    src="/src/assets/images/dr_abdullah_portrait_1784790513715.jpg"
+                    alt={CLINIC_INFO.doctorName}
+                    className="w-full h-full object-cover object-top"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
 
                 {/* Title & Name */}
