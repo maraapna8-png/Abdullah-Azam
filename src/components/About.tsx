@@ -1,6 +1,6 @@
 import { CLINIC_INFO } from '../data';
 import { Heart, ShieldCheck, Award, ThumbsUp } from 'lucide-react';
-import doctorImageSrc from '../assets/images/user_abdullah_photo_1784796792971.jpg';
+import doctorImageSrc from '../assets/images/dr_abdullah_exact_photo_1784821107243.jpg';
 
 export default function About() {
   return (

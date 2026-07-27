@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Shield, Lock } from 'lucide-react';
 import { CLINIC_INFO } from '../data';
-import doctorImageSrc from '../assets/images/user_abdullah_photo_1784796792971.jpg';
+import doctorImageSrc from '../assets/images/dr_abdullah_exact_photo_1784821107243.jpg';
 
 interface NavbarProps {
   onBookClick: () => void;
