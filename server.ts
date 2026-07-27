@@ -32,6 +32,35 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', doctor: 'Dr. Abdullah', phone: '03430277466' });
 });
 
+// Serve Sitemap XML for SEO
+app.get('/sitemap.xml', (req, res) => {
+  res.header('Content-Type', 'application/xml');
+  res.send(`<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url><loc>https://drabdullah.netlify.app/</loc></url>
+<url><loc>https://drabdullah.netlify.app/about</loc></url>
+<url><loc>https://drabdullah.netlify.app/services</loc></url>
+<url><loc>https://drabdullah.netlify.app/appointment</loc></url>
+<url><loc>https://drabdullah.netlify.app/gallery</loc></url>
+<url><loc>https://drabdullah.netlify.app/testimonials</loc></url>
+<url><loc>https://drabdullah.netlify.app/faq</loc></url>
+<url><loc>https://drabdullah.netlify.app/contact</loc></url>
+<url><loc>https://drabdullah.netlify.app/login</loc></url>
+</urlset>`);
+});
+
+// Serve Robots.txt for SEO crawlers
+app.get('/robots.txt', (req, res) => {
+  res.header('Content-Type', 'text/plain');
+  res.send(`User-agent: *\nAllow: /\n\nSitemap: https://drabdullah.netlify.app/sitemap.xml\n`);
+});
+
+// Serve Google Search Console Verification File
+app.get('/googlec8150da76f89cd8b.html', (req, res) => {
+  res.header('Content-Type', 'text/html');
+  res.send(`google-site-verification: googlec8150da76f89cd8b.html`);
+});
+
 // API Get Appointments
 app.get('/api/appointments', (req, res) => {
   res.json({ appointments: appointmentsStore });
