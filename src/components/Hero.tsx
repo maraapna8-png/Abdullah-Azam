@@ -1,6 +1,6 @@
 import { CLINIC_INFO } from '../data';
 import { ShieldCheck, UserCheck2, Clock, MapPin, ArrowRight } from 'lucide-react';
-import doctorImageSrc from '../assets/images/dr_abdullah_photo_v2.jpg';
+import doctorImageSrc from '../assets/images/dr_abdullah_photo_v5.jpg';
 import heroBgSrc from '../assets/images/hero_clinic_bg_1784609750809.jpg';
 
 interface HeroProps {
