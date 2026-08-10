@@ -31,9 +31,12 @@ export default function About() {
                     src={doctorImageSrc}
                     alt={CLINIC_INFO.doctorName}
                     className="w-full h-full object-cover object-top"
-                    referrerPolicy="no-referrer"
                     onError={(e) => {
-                      e.currentTarget.src = '/dr-abdullah-photo.jpg';
+                      const target = e.currentTarget;
+                      if (!target.dataset.failed) {
+                        target.dataset.failed = 'true';
+                        target.src = '/dr-abdullah-photo.jpg';
+                      }
                     }}
                   />
                 </div>
