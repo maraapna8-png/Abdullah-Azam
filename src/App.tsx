@@ -15,7 +15,6 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import DoctorDashboard from './components/DoctorDashboard';
-import WhatsAppWidget from './components/WhatsAppWidget';
 import { Megaphone, X, Clock, HelpCircle, Phone } from 'lucide-react';
 import { CLINIC_INFO } from './data';
 
@@ -120,9 +119,6 @@ export default function App() {
 
       {/* Shared Footer */}
       <Footer onViewPortal={toggleDoctorPortal} />
-
-      {/* Persistent Floating WhatsApp Widget */}
-      {viewMode === 'public' && <WhatsAppWidget />}
     </div>
   );
 }
