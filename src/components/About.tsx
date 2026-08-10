@@ -32,6 +32,9 @@ export default function About() {
                     alt={CLINIC_INFO.doctorName}
                     className="w-full h-full object-cover object-top"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.src = '/dr-abdullah-photo.jpg';
+                    }}
                   />
                 </div>
 

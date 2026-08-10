@@ -61,6 +61,9 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
                 alt="Dr. Abdullah"
                 className="w-full h-full object-cover object-top"
                 referrerPolicy="no-referrer"
+                onError={(e) => {
+                  e.currentTarget.src = '/dr-abdullah-photo.jpg';
+                }}
               />
             </div>
             <div>

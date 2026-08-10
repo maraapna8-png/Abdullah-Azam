@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>https://drabdullah.netlify.app/</loc></url>
-<url><loc>https://drabdullah.netlify.app/about</loc></url>
-<url><loc>https://drabdullah.netlify.app/services</loc></url>
-<url><loc>https://drabdullah.netlify.app/appointment</loc></url>
-<url><loc>https://drabdullah.netlify.app/gallery</loc></url>
-<url><loc>https://drabdullah.netlify.app/testimonials</loc></url>
-<url><loc>https://drabdullah.netlify.app/faq</loc></url>
-<url><loc>https://drabdullah.netlify.app/contact</loc></url>
-<url><loc>https://drabdullah.netlify.app/login</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://drabdullah.netlify.app/</loc>
+    <image:image>
+      <image:loc>https://drabdullah.netlify.app/dr-abdullah-photo.jpg</image:loc>
+      <image:title>Dr. Abdullah - General Physician &amp; Consultant</image:title>
+      <image:caption>Official portrait photo of Dr. Abdullah, General Physician in DI Khan, Pakistan.</image:caption>
+    </image:image>
+  </url>
+  <url><loc>https://drabdullah.netlify.app/about</loc></url>
+  <url><loc>https://drabdullah.netlify.app/services</loc></url>
+  <url><loc>https://drabdullah.netlify.app/appointment</loc></url>
+  <url><loc>https://drabdullah.netlify.app/gallery</loc></url>
+  <url><loc>https://drabdullah.netlify.app/testimonials</loc></url>
+  <url><loc>https://drabdullah.netlify.app/faq</loc></url>
+  <url><loc>https://drabdullah.netlify.app/contact</loc></url>
 </urlset>

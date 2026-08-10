@@ -103,9 +103,12 @@ export default function Hero({ onBookClick }: HeroProps) {
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/5] border border-slate-100 shadow-inner group">
                   <img
                     src={doctorImageSrc}
-                    alt="Dr. Abdullah - General Physician"
+                    alt="Dr. Abdullah - General Physician & Medical Consultant"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     referrerPolicy="no-referrer"
+                    onError={(e) => {
+                      e.currentTarget.src = '/dr-abdullah-photo.jpg';
+                    }}
                   />
                   <div className="absolute top-3 right-3 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg flex items-center gap-1.5">
                     <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
