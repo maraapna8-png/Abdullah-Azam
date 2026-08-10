@@ -57,14 +57,17 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
           <div className="flex items-center space-x-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
             <div className="w-10 h-10 rounded-xl overflow-hidden border border-blue-200 shadow-sm shrink-0">
               <img
-                src={doctorImageSrc}
+                src="/dr-abdullah-photo.jpg"
                 alt="Dr. Abdullah"
                 className="w-full h-full object-cover object-top"
                 onError={(e) => {
                   const target = e.currentTarget;
-                  if (!target.dataset.failed) {
-                    target.dataset.failed = 'true';
-                    target.src = '/dr-abdullah-photo.jpg';
+                  if (!target.dataset.fallbackCount) {
+                    target.dataset.fallbackCount = '1';
+                    target.src = doctorImageSrc;
+                  } else if (target.dataset.fallbackCount === '1') {
+                    target.dataset.fallbackCount = '2';
+                    target.src = '/dr_abdullah_photo_v6.jpg';
                   }
                 }}
               />
