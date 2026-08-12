@@ -1,0 +1,33 @@
+# Dr. Abdullah Medical Clinic - DI Khan
+
+> Dr. Abdullah is a leading General Physician & Medical Consultant in Dera Ismail Khan (DI Khan), Pakistan, offering comprehensive primary healthcare, online appointment booking, digital prescriptions, and patient records access.
+
+## General Information
+- **Doctor Name**: Dr. Abdullah
+- **Specialty**: General Physician & Medical Consultant
+- **Location**: Eid Gaah Road, Dera Ismail Khan, Pakistan
+- **Phone / WhatsApp**: +92 343 0277466
+- **Email**: dr.abdullah.dik@gmail.com
+- **Website**: https://drabdullah.netlify.app/
+
+## Core Medical Services
+- **General Checkups**: Comprehensive physical exams, vital sign monitoring, and routine wellness screening.
+- **Medical Consultation**: One-on-one evaluations for acute and chronic symptoms.
+- **Diagnosis & Treatment**: Evidence-based management of fever, infections, diabetes, hypertension, asthma, and digestive disorders.
+- **Preventive Care**: Immunity boosting, lifestyle counseling, and early disease detection.
+- **Patient Portal & Medical Records**: Secure online access to past lab reports, diagnoses, and digital prescriptions.
+- **Doctor Portal**: Secure appointment management, prescription writing, and real-time clinic announcements.
+
+## Key Links
+- [Home & Clinic Overview](https://drabdullah.netlify.app/): Overview of services, timing, contact, and online appointment booking.
+- [About Dr. Abdullah](https://drabdullah.netlify.app/#about): Qualifications, clinical experience, and medical philosophy.
+- [Services](https://drabdullah.netlify.app/#services): Medical checkups, diagnostic services, and treatment details.
+- [Book Appointment](https://drabdullah.netlify.app/#appointment): Direct online booking form for clinic visits and consultations.
+- [Gallery](https://drabdullah.netlify.app/#gallery): Clinic facilities, consultation room, and environment photos.
+- [Testimonials](https://drabdullah.netlify.app/#testimonials): Verified patient feedback and recovery reviews.
+- [FAQ](https://drabdullah.netlify.app/#faq): Clinic hours, location guidance, fees, and booking policies.
+- [Contact & Location](https://drabdullah.netlify.app/#contact): Phone, WhatsApp link, email, opening hours, and interactive location map.
+
+## Additional Documentation
+- [Sitemap](https://drabdullah.netlify.app/sitemap.xml): Machine-readable XML structure of the website.
+- [Robots Configuration](https://drabdullah.netlify.app/robots.txt): Search engine crawling directives.
