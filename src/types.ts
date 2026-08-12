@@ -45,5 +45,58 @@ export interface FAQItem {
 export interface ClinicHours {
   day: string;
   hours: string;
-  closed: boolean;
+  closed?: boolean;
 }
+
+
+
+export interface PrescriptionItem {
+  medicineName: string;
+  dosage: string;
+  frequency: string;
+  duration: string;
+  notes?: string;
+}
+
+export interface LabTest {
+  id: string;
+  testName: string;
+  status: 'Pending' | 'Completed' | 'Normal' | 'Attention Required';
+  date?: string;
+  summary?: string;
+}
+
+export interface MedicalRecord {
+  id: string;
+  patientEmail: string;
+  patientPhone: string;
+  date: string;
+  doctorName: string;
+  visitType: string;
+  diagnosis: string;
+  vitals: {
+    bp: string;
+    pulse: string;
+    temp: string;
+    weight: string;
+    sugar?: string;
+  };
+  symptoms: string[];
+  prescriptions: PrescriptionItem[];
+  doctorNotes: string;
+  labTests?: LabTest[];
+}
+
+export interface PatientUser {
+  id: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  gender: string;
+  age: number;
+  bloodGroup: string;
+  allergies: string[];
+  chronicConditions: string[];
+  emergencyContact: string;
+}
+

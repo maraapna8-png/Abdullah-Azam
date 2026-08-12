@@ -17,6 +17,16 @@ export default function Hero({ onBookClick }: HeroProps) {
           alt="Dr. Abdullah Medical Clinic"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
+          onError={(e) => {
+            const target = e.currentTarget;
+            if (!target.dataset.fallbackCount) {
+              target.dataset.fallbackCount = '1';
+              target.src = '/hero_clinic_bg.jpg';
+            } else if (target.dataset.fallbackCount === '1') {
+              target.dataset.fallbackCount = '2';
+              target.src = 'https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=2000';
+            }
+          }}
         />
         {/* Modern multi-layer gradient overlay to ensure excellent text contrast and brand integration */}
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/60 md:bg-gradient-to-r md:from-white md:via-white/90 md:to-slate-50/70" />
@@ -102,14 +112,14 @@ export default function Hero({ onBookClick }: HeroProps) {
               <div className="relative bg-white border border-slate-200 rounded-3xl p-5 shadow-xl space-y-4">
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/5] border border-slate-100 shadow-inner group">
                   <img
-                    src="/dr-abdullah-photo.jpg"
+                    src={doctorImageSrc}
                     alt="Dr. Abdullah - General Physician & Medical Consultant"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     onError={(e) => {
                       const target = e.currentTarget;
                       if (!target.dataset.fallbackCount) {
                         target.dataset.fallbackCount = '1';
-                        target.src = doctorImageSrc;
+                        target.src = '/dr-abdullah-photo.jpg';
                       } else if (target.dataset.fallbackCount === '1') {
                         target.dataset.fallbackCount = '2';
                         target.src = '/dr_abdullah_photo_v6.jpg';

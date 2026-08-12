@@ -15,11 +15,12 @@ import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import DoctorDashboard from './components/DoctorDashboard';
+import PatientPortal from './components/PatientPortal';
 import { Megaphone, X, Clock, HelpCircle, Phone } from 'lucide-react';
 import { CLINIC_INFO } from './data';
 
 export default function App() {
-  const [viewMode, setViewMode] = useState<'public' | 'doctor'>('public');
+  const [viewMode, setViewMode] = useState<'public' | 'doctor' | 'patient'>('public');
   const [preselectedService, setPreselectedService] = useState('');
   const [announcement, setAnnouncement] = useState('');
   const [showAnnouncement, setShowAnnouncement] = useState(true);
@@ -51,6 +52,11 @@ export default function App() {
     window.scrollTo({ top: 0 });
   };
 
+  const togglePatientPortal = () => {
+    setViewMode(viewMode === 'patient' ? 'public' : 'patient');
+    window.scrollTo({ top: 0 });
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800 antialiased selection:bg-blue-600 selection:text-white">
       {/* Top Notification Announcement Bar (Public view only) */}
@@ -74,6 +80,7 @@ export default function App() {
       <Navbar
         onBookClick={handleBookClick}
         onViewPortal={toggleDoctorPortal}
+        onOpenPatientPortal={togglePatientPortal}
         viewMode={viewMode}
         onSetViewMode={setViewMode}
       />
@@ -82,6 +89,11 @@ export default function App() {
       <main className="flex-grow">
         {viewMode === 'doctor' ? (
           <DoctorDashboard onClose={() => setViewMode('public')} />
+        ) : viewMode === 'patient' ? (
+          <PatientPortal
+            onClose={() => setViewMode('public')}
+            onBookNewAppointment={handleBookClick}
+          />
         ) : (
           <div className="space-y-0">
             {/* Hero Banner */}
@@ -118,8 +130,12 @@ export default function App() {
       </main>
 
       {/* Shared Footer */}
-      <Footer onViewPortal={toggleDoctorPortal} />
+      <Footer
+        onViewPortal={toggleDoctorPortal}
+        onOpenPatientPortal={togglePatientPortal}
+      />
     </div>
   );
 }
+
 

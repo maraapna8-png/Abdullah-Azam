@@ -28,14 +28,14 @@ export default function About() {
                 {/* Doctor Portrait Image */}
                 <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-emerald-400/40 shadow-lg mb-6 shrink-0">
                   <img
-                    src="/dr-abdullah-photo.jpg"
+                    src={doctorImageSrc}
                     alt={CLINIC_INFO.doctorName}
                     className="w-full h-full object-cover object-top"
                     onError={(e) => {
                       const target = e.currentTarget;
                       if (!target.dataset.fallbackCount) {
                         target.dataset.fallbackCount = '1';
-                        target.src = doctorImageSrc;
+                        target.src = '/dr-abdullah-photo.jpg';
                       } else if (target.dataset.fallbackCount === '1') {
                         target.dataset.fallbackCount = '2';
                         target.src = '/dr_abdullah_photo_v6.jpg';

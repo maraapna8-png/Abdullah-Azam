@@ -1,14 +1,16 @@
 import { CLINIC_INFO } from '../data';
-import { Phone, MapPin, Mail, ShieldAlert, Heart, ArrowUp, Lock } from 'lucide-react';
+import { Phone, MapPin, Mail, ShieldAlert, Heart, ArrowUp, Lock, UserCheck } from 'lucide-react';
 
 interface FooterProps {
   onViewPortal: () => void;
+  onOpenPatientPortal?: () => void;
 }
 
-export default function Footer({ onViewPortal }: FooterProps) {
+export default function Footer({ onViewPortal, onOpenPatientPortal }: FooterProps) {
   const handleScrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
 
   return (
     <footer className="bg-slate-900 text-slate-400 pt-16 pb-8 border-t border-slate-800 relative overflow-hidden">
@@ -104,14 +106,24 @@ export default function Footer({ onViewPortal }: FooterProps) {
           </div>
 
           {/* Bottom Action row */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
+            {onOpenPatientPortal && (
+              <button
+                onClick={onOpenPatientPortal}
+                className="text-slate-400 hover:text-blue-400 flex items-center gap-1 py-1 px-2.5 rounded-lg hover:bg-slate-800/50 transition-all cursor-pointer font-semibold text-xs"
+                id="btn-footer-patient-portal"
+              >
+                <UserCheck size={12} />
+                <span>Patient Login</span>
+              </button>
+            )}
             <button
               onClick={onViewPortal}
-              className="text-slate-500 hover:text-emerald-400 flex items-center gap-1 py-1 px-2.5 rounded-lg hover:bg-slate-800/50 transition-all cursor-pointer"
+              className="text-slate-500 hover:text-emerald-400 flex items-center gap-1 py-1 px-2.5 rounded-lg hover:bg-slate-800/50 transition-all cursor-pointer text-xs"
               id="btn-footer-portal"
             >
               <Lock size={12} />
-              <span>Doctor Secure Access</span>
+              <span>Doctor Access</span>
             </button>
             <button
               onClick={handleScrollToTop}

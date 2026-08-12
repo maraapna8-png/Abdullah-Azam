@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, Shield, Lock } from 'lucide-react';
+import { Menu, X, Shield, Lock, UserCheck } from 'lucide-react';
 import { CLINIC_INFO } from '../data';
 import doctorImageSrc from '../assets/images/dr_abdullah_photo_v6.jpg';
 
 interface NavbarProps {
   onBookClick: () => void;
   onViewPortal: () => void;
-  viewMode: 'public' | 'doctor';
-  onSetViewMode: (mode: 'public' | 'doctor') => void;
+  onOpenPatientPortal?: () => void;
+  viewMode: 'public' | 'doctor' | 'patient';
+  onSetViewMode: (mode: 'public' | 'doctor' | 'patient') => void;
 }
 
-export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewMode }: NavbarProps) {
+export default function Navbar({ onBookClick, onViewPortal, onOpenPatientPortal, viewMode, onSetViewMode }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -25,7 +26,7 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     setIsOpen(false);
-    if (viewMode === 'doctor') {
+    if (viewMode !== 'public') {
       onSetViewMode('public');
       // Delay slightly to allow transition and DOM rendering
       setTimeout(() => {
@@ -46,7 +47,7 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
     <nav
       id="main-nav"
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled || viewMode === 'doctor'
+        isScrolled || viewMode !== 'public'
           ? 'bg-white shadow-md py-3'
           : 'bg-white/95 backdrop-blur-md md:bg-transparent py-5'
       }`}
@@ -54,17 +55,17 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           {/* Logo Branding */}
-          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+          <div className="flex items-center space-x-3 cursor-pointer" onClick={() => { onSetViewMode('public'); window.scrollTo({ top: 0, behavior: 'smooth' }); }}>
             <div className="w-10 h-10 rounded-xl overflow-hidden border border-blue-200 shadow-sm shrink-0">
               <img
-                src="/dr-abdullah-photo.jpg"
+                src={doctorImageSrc}
                 alt="Dr. Abdullah"
                 className="w-full h-full object-cover object-top"
                 onError={(e) => {
                   const target = e.currentTarget;
                   if (!target.dataset.fallbackCount) {
                     target.dataset.fallbackCount = '1';
-                    target.src = doctorImageSrc;
+                    target.src = '/dr-abdullah-photo.jpg';
                   } else if (target.dataset.fallbackCount === '1') {
                     target.dataset.fallbackCount = '2';
                     target.src = '/dr_abdullah_photo_v6.jpg';
@@ -83,7 +84,7 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
           </div>
 
           {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6">
             {viewMode === 'public' ? (
               <>
                 <a
@@ -98,7 +99,7 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
                   onClick={(e) => handleNavClick(e, 'about')}
                   className="text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors"
                 >
-                  About Dr. Abdullah
+                  About
                 </a>
                 <a
                   href="#services"
@@ -139,10 +140,30 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
             )}
 
             {/* CTA Buttons */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-2.5">
+              <button
+                onClick={() => {
+                  if (onOpenPatientPortal) {
+                    onOpenPatientPortal();
+                  } else {
+                    onSetViewMode('patient');
+                  }
+                }}
+                className={`px-3 py-2 rounded-xl border transition-all text-xs font-bold flex items-center gap-1.5 ${
+                  viewMode === 'patient'
+                    ? 'border-blue-600 bg-blue-600 text-white shadow-sm'
+                    : 'border-blue-200 bg-blue-50 text-blue-700 hover:bg-blue-100'
+                }`}
+                title="Patient Login & Medical Records"
+                id="btn-patient-portal-desktop"
+              >
+                <UserCheck size={14} />
+                <span>Patient Login</span>
+              </button>
+
               <button
                 onClick={onViewPortal}
-                className={`p-2 rounded-lg border transition-all text-xs font-medium flex items-center gap-1.5 ${
+                className={`p-2 rounded-xl border transition-all text-xs font-medium flex items-center gap-1.5 ${
                   viewMode === 'doctor'
                     ? 'border-emerald-200 bg-emerald-50 text-emerald-700 font-bold'
                     : 'border-slate-200 bg-slate-50 text-slate-600 hover:bg-slate-100'
@@ -151,7 +172,7 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
                 id="btn-portal-desktop"
               >
                 <Lock size={14} className={viewMode === 'doctor' ? 'text-emerald-500' : 'text-slate-400'} />
-                {viewMode === 'doctor' ? "Portal Active" : "Doctor Portal"}
+                {viewMode === 'doctor' ? "Doctor Portal" : "Doctor Login"}
               </button>
 
               <button
@@ -165,10 +186,29 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
           </div>
 
           {/* Mobile Hamburger Toggle */}
-          <div className="md:hidden flex items-center space-x-3">
+          <div className="md:hidden flex items-center space-x-2">
+            <button
+              onClick={() => {
+                if (onOpenPatientPortal) {
+                  onOpenPatientPortal();
+                } else {
+                  onSetViewMode('patient');
+                }
+              }}
+              className={`px-2.5 py-1.5 rounded-lg border text-xs font-bold flex items-center gap-1 ${
+                viewMode === 'patient'
+                  ? 'border-blue-600 bg-blue-600 text-white'
+                  : 'border-blue-200 bg-blue-50 text-blue-700'
+              }`}
+              id="btn-patient-portal-mobile"
+            >
+              <UserCheck size={13} />
+              <span>Patient</span>
+            </button>
+
             <button
               onClick={onViewPortal}
-              className={`p-2 rounded-lg border text-xs flex items-center gap-1 ${
+              className={`p-1.5 rounded-lg border text-xs flex items-center gap-1 ${
                 viewMode === 'doctor'
                   ? 'border-emerald-200 bg-emerald-50 text-emerald-700'
                   : 'border-slate-200 bg-slate-50 text-slate-500'
@@ -176,8 +216,8 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
               id="btn-portal-mobile"
             >
               <Lock size={13} />
-              <span>Doctor</span>
             </button>
+
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-slate-700 hover:text-blue-600 p-1.5 rounded-lg border border-slate-200 bg-slate-50"
@@ -254,6 +294,21 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
             <button
               onClick={() => {
                 setIsOpen(false);
+                if (onOpenPatientPortal) {
+                  onOpenPatientPortal();
+                } else {
+                  onSetViewMode('patient');
+                }
+              }}
+              className="w-full bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold py-2.5 rounded-xl border border-blue-200 text-center flex items-center justify-center gap-2"
+            >
+              <UserCheck size={16} />
+              <span>Patient Login & Medical History</span>
+            </button>
+
+            <button
+              onClick={() => {
+                setIsOpen(false);
                 onBookClick();
               }}
               className="w-full bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2.5 rounded-xl shadow-sm cursor-pointer"
@@ -267,3 +322,4 @@ export default function Navbar({ onBookClick, onViewPortal, viewMode, onSetViewM
     </nav>
   );
 }
+

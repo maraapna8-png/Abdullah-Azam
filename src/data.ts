@@ -1,4 +1,4 @@
-import { Service, Feature, Testimonial, FAQItem, ClinicHours } from './types';
+import { Service, Feature, Testimonial, FAQItem, ClinicHours, PatientUser, MedicalRecord } from './types';
 
 export const CLINIC_INFO = {
   doctorName: "Dr. Abdullah",
@@ -170,3 +170,126 @@ export const CLINIC_HOURS: ClinicHours[] = [
   { day: "Saturday", hours: "10:00 AM - 02:00 PM, 05:00 PM - 09:00 PM", closed: false },
   { day: "Sunday", hours: "Closed", closed: true }
 ];
+
+export const DEMO_PATIENTS: PatientUser[] = [
+  {
+    id: "PAT-1082",
+    fullName: "Muhammad Ali",
+    email: "maraapna8@gmail.com",
+    phone: "03430277466",
+    gender: "Male",
+    age: 34,
+    bloodGroup: "B+",
+    allergies: ["Penicillin", "Dust Mites"],
+    chronicConditions: ["Mild Hypertension"],
+    emergencyContact: "03001234567 (Brother - Ahmed)"
+  },
+  {
+    id: "PAT-1095",
+    fullName: "Ayesha Khan",
+    email: "ayesha.k@gmail.com",
+    phone: "03339876543",
+    gender: "Female",
+    age: 28,
+    bloodGroup: "O+",
+    allergies: ["None"],
+    chronicConditions: ["Seasonal Asthma"],
+    emergencyContact: "03219876543 (Husband - Usman)"
+  }
+];
+
+export const INITIAL_MEDICAL_RECORDS: MedicalRecord[] = [
+  {
+    id: "REC-9402",
+    patientEmail: "maraapna8@gmail.com",
+    patientPhone: "03430277466",
+    date: "2026-07-28",
+    doctorName: "Dr. Abdullah",
+    visitType: "Follow-up & General Consultation",
+    diagnosis: "Acute Upper Respiratory Infection & Mild Blood Pressure Elevation",
+    vitals: {
+      bp: "128/82 mmHg",
+      pulse: "76 bpm",
+      temp: "98.6 °F",
+      weight: "74 kg",
+      sugar: "104 mg/dL"
+    },
+    symptoms: ["Sore throat", "Dry cough", "Mild headache", "Fatigue"],
+    prescriptions: [
+      {
+        medicineName: "Tab. Augmentin 625mg",
+        dosage: "625mg",
+        frequency: "1-0-1 (Twice daily after meals)",
+        duration: "5 Days",
+        notes: "Complete full course without skipping"
+      },
+      {
+        medicineName: "Tab. Panadol CF",
+        dosage: "500mg",
+        frequency: "1-1-1 (Three times daily)",
+        duration: "3 Days",
+        notes: "For body pain and throat relief"
+      },
+      {
+        medicineName: "Syp. Acefyl Respiratory Relief",
+        dosage: "2 Teaspoons",
+        frequency: "1-0-1 (Morning & Night)",
+        duration: "5 Days"
+      }
+    ],
+    doctorNotes: "Patient reported throat discomfort and fatigue over 3 days. Throat examination revealed mild pharyngeal erythema. Lungs clear to auscultation. Advised warm saline gargles, adequate fluid intake, and 5-day antibiotic regimen.",
+    labTests: [
+      {
+        id: "LAB-101",
+        testName: "Complete Blood Count (CBC)",
+        status: "Normal",
+        date: "2026-07-28",
+        summary: "WBC 7.2 x10^3/µL, Hemoglobin 14.5 g/dL, Platelets 260 x10^3/µL. All markers within healthy normal limits."
+      },
+      {
+        id: "LAB-102",
+        testName: "Fasting Blood Glucose",
+        status: "Normal",
+        date: "2026-07-28",
+        summary: "Fasting blood glucose 104 mg/dL. Excellent glycemic control."
+      }
+    ]
+  },
+  {
+    id: "REC-8812",
+    patientEmail: "maraapna8@gmail.com",
+    patientPhone: "03430277466",
+    date: "2026-05-15",
+    doctorName: "Dr. Abdullah",
+    visitType: "Routine Wellness & BP Review",
+    diagnosis: "Essential Hypertension (Stage 1) - Well Controlled",
+    vitals: {
+      bp: "124/80 mmHg",
+      pulse: "72 bpm",
+      temp: "98.4 °F",
+      weight: "75 kg",
+      sugar: "98 mg/dL"
+    },
+    symptoms: ["Routine checkup", "Mild neck stiffness"],
+    prescriptions: [
+      {
+        medicineName: "Tab. Softabs 5mg",
+        dosage: "5mg",
+        frequency: "0-0-1 (Once daily at bedtime)",
+        duration: "30 Days",
+        notes: "Maintain regular daily timing"
+      }
+    ],
+    doctorNotes: "Blood pressure is well controlled on current regimen. Advised to continue low-sodium diet and 30-minute daily light cardio exercise.",
+    labTests: [
+      {
+        id: "LAB-088",
+        testName: "Lipid Profile Panel",
+        status: "Normal",
+        date: "2026-05-15",
+        summary: "Total Cholesterol 185 mg/dL, HDL 48 mg/dL, LDL 112 mg/dL. Normal cardiac risk profile."
+      }
+    ]
+  }
+];
+
