@@ -38,6 +38,9 @@ export default function About() {
                         target.src = '/dr-abdullah-photo.jpg';
                       } else if (target.dataset.fallbackCount === '1') {
                         target.dataset.fallbackCount = '2';
+                        target.src = 'https://lh3.googleusercontent.com/d/1v4J1rJKhYd7I4ZolkgfRS103_aNIaVgb';
+                      } else if (target.dataset.fallbackCount === '2') {
+                        target.dataset.fallbackCount = '3';
                         target.src = '/dr_abdullah_photo_v6.jpg';
                       }
                     }}
