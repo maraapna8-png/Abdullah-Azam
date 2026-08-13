@@ -150,9 +150,6 @@ export default function BookingForm({ preselectedService, onBookingSuccess }: Bo
     existing.push(newAppointment);
     localStorage.setItem('dr_abdullah_bookings', JSON.stringify(existing));
 
-    // Open WhatsApp URL to trigger notification to Dr. Abdullah (03430277466)
-    window.open(generatedWaUrl, '_blank', 'noopener,noreferrer');
-
     // Callback to root
     onBookingSuccess(newAppointment);
     setSuccessBooking(newAppointment);
@@ -186,33 +183,33 @@ export default function BookingForm({ preselectedService, onBookingSuccess }: Bo
               Schedule Your Consultation Today
             </h2>
             <p className="text-slate-600 leading-relaxed font-medium text-sm sm:text-base">
-              Complete the form to register your details. An instant notification will be sent to Dr. Abdullah on WhatsApp (03430277466) and a confirmation message will be delivered to your email.
+              Complete the form to register your consultation details. Once your appointment is booked, you can instantly notify Dr. Abdullah on WhatsApp (03430277466).
             </p>
 
             {/* Notifications Info Box */}
-            <div className="bg-white border border-emerald-100 rounded-2xl p-4 shadow-sm space-y-3">
+            <div className="bg-white border border-blue-100 rounded-2xl p-4 shadow-sm space-y-3">
+              <div className="flex items-center space-x-2.5 text-blue-900 font-bold text-xs">
+                <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                  <Calendar size={16} />
+                </div>
+                <span>Online Appointment Registration</span>
+              </div>
               <div className="flex items-center space-x-2.5 text-emerald-800 font-bold text-xs">
                 <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                   <MessageCircle size={16} />
                 </div>
-                <span>WhatsApp Notification: <strong>03430277466</strong></span>
-              </div>
-              <div className="flex items-center space-x-2.5 text-blue-900 font-bold text-xs">
-                <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                  <Mail size={16} />
-                </div>
-                <span>Email Confirmation sent to Patient's Gmail/Email</span>
+                <span>WhatsApp Notification unlocked after booking</span>
               </div>
             </div>
 
             {/* Quick tips */}
             <div className="space-y-4 pt-4 border-t border-slate-200">
               <div className="flex items-start space-x-3">
-                <div className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
+                <div className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
                   1
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                  <strong>Submit Form:</strong> Enter patient details, preferred date, and time slot.
+                  <strong>Submit Form:</strong> Fill in patient details, preferred date, and consultation time slot.
                 </p>
               </div>
               <div className="flex items-start space-x-3">
@@ -220,15 +217,15 @@ export default function BookingForm({ preselectedService, onBookingSuccess }: Bo
                   2
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                  <strong>WhatsApp Notification:</strong> Pre-filled message sent directly to Dr. Abdullah on 03430277466.
+                  <strong>Notify on WhatsApp:</strong> Click the WhatsApp button on the confirmation screen to send pre-filled details to Dr. Abdullah (03430277466).
                 </p>
               </div>
               <div className="flex items-start space-x-3">
-                <div className="w-5 h-5 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
+                <div className="w-5 h-5 rounded-full bg-blue-600 text-white flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">
                   3
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                  <strong>Email Confirmation:</strong> Confirmation receipt delivered to your specified Gmail account.
+                  <strong>Email Confirmation:</strong> Confirmation receipt will also be logged for your specified email.
                 </p>
               </div>
             </div>
@@ -257,29 +254,8 @@ export default function BookingForm({ preselectedService, onBookingSuccess }: Bo
                     </p>
                   </div>
 
-                  {/* Dual Notification Status Badges */}
+                  {/* Notification Status Badge */}
                   <div className="space-y-2.5 max-w-md mx-auto text-left">
-                    {/* WhatsApp Status */}
-                    <div className="p-3.5 bg-emerald-50 border border-emerald-200 rounded-2xl flex items-center justify-between text-xs">
-                      <div className="flex items-center space-x-2.5">
-                        <div className="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0">
-                          <MessageCircle size={16} />
-                        </div>
-                        <div>
-                          <p className="font-bold text-emerald-950">WhatsApp Alert Sent</p>
-                          <p className="text-emerald-700 font-medium text-[11px]">Notification sent to <strong>03430277466</strong></p>
-                        </div>
-                      </div>
-                      <a
-                        href={whatsappLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-[11px] px-3 py-1.5 rounded-lg flex items-center gap-1 shadow-sm shrink-0"
-                      >
-                        Send Again <ExternalLink size={12} />
-                      </a>
-                    </div>
-
                     {/* Email Status */}
                     <div className="p-3.5 bg-blue-50 border border-blue-200 rounded-2xl flex items-center justify-between text-xs">
                       <div className="flex items-center space-x-2.5">
@@ -324,22 +300,25 @@ export default function BookingForm({ preselectedService, onBookingSuccess }: Bo
                     </div>
                   </div>
 
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto pt-2">
-                    <button
-                      onClick={() => setSuccessBooking(null)}
-                      className="w-full sm:w-auto border border-slate-200 hover:bg-slate-50 font-semibold text-xs px-5 py-3 rounded-xl transition-all cursor-pointer"
-                    >
-                      Book Another Slot
-                    </button>
+                  {/* Prominent WhatsApp Action CTA */}
+                  <div className="max-w-md mx-auto pt-2 space-y-3">
                     <a
                       href={whatsappLink}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-5 py-3 rounded-xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                      className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm py-4 px-6 rounded-2xl shadow-lg shadow-emerald-600/20 transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2.5 cursor-pointer"
                     >
-                      <MessageCircle size={15} />
-                      Open WhatsApp (03430277466)
+                      <MessageCircle size={20} />
+                      <span>Send Appointment Details via WhatsApp (03430277466)</span>
+                      <ExternalLink size={16} />
                     </a>
+
+                    <button
+                      onClick={() => setSuccessBooking(null)}
+                      className="w-full border border-slate-200 hover:bg-slate-50 font-semibold text-xs py-3 rounded-xl transition-all cursor-pointer text-slate-600"
+                    >
+                      Book Another Appointment
+                    </button>
                   </div>
                 </div>
               ) : (
@@ -516,18 +495,18 @@ export default function BookingForm({ preselectedService, onBookingSuccess }: Bo
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-sm sm:text-base py-3.5 sm:py-4 rounded-xl shadow-md transition-all hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:translate-y-0 cursor-pointer text-center flex items-center justify-center gap-2"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold text-sm sm:text-base py-3.5 sm:py-4 rounded-xl shadow-md transition-all hover:-translate-y-0.5 active:translate-y-0 disabled:opacity-50 disabled:translate-y-0 cursor-pointer text-center flex items-center justify-center gap-2"
                     id="btn-appointment-submit"
                   >
                     {isSubmitting ? (
                       <>
                         <div className="w-5 h-5 border-2 border-white/35 border-t-white rounded-full animate-spin" />
-                        <span>Sending WhatsApp & Email Alerts...</span>
+                        <span>Confirming & Booking Slot...</span>
                       </>
                     ) : (
                       <>
-                        <MessageCircle size={18} />
-                        <span>Book & Notify via WhatsApp (03430277466)</span>
+                        <Calendar size={18} />
+                        <span>Confirm & Book Appointment</span>
                         <ArrowRight size={18} />
                       </>
                     )}

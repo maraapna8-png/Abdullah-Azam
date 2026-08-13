@@ -943,6 +943,11 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                             </div>
 
                             <div className="flex items-center gap-2 text-slate-600">
+                              <User size={16} className="text-purple-600 shrink-0" />
+                              <span>Patient Name: <strong>{app.patientName}</strong></span>
+                            </div>
+
+                            <div className="flex items-center gap-2 text-slate-600">
                               <Stethoscope size={16} className="text-emerald-600 shrink-0" />
                               <span>Doctor: <strong>Dr. Abdullah</strong> (General Physician)</span>
                             </div>

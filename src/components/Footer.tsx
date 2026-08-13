@@ -36,7 +36,7 @@ export default function Footer({ onViewPortal, onOpenPatientPortal }: FooterProp
               {/* Fake but clean responsive social anchors */}
               <a href="#" className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition-colors text-xs font-bold" aria-label="Facebook">F</a>
               <a href="#" className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-blue-400 text-white flex items-center justify-center transition-colors text-xs font-bold" aria-label="Twitter">T</a>
-              <a href="#" className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-emerald-500 text-white flex items-center justify-center transition-colors text-xs font-bold" aria-label="WhatsApp">W</a>
+              <a href="#appointment" className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-emerald-500 text-white flex items-center justify-center transition-colors text-xs font-bold" aria-label="WhatsApp" title="Book Appointment First">W</a>
               <a href="#" className="w-8 h-8 rounded-lg bg-slate-800 hover:bg-red-500 text-white flex items-center justify-center transition-colors text-xs font-bold" aria-label="Youtube">Y</a>
             </div>
           </div>
@@ -69,15 +69,13 @@ export default function Footer({ onViewPortal, onOpenPatientPortal }: FooterProp
 
               <div className="flex items-start space-x-2.5">
                 <a
-                  href={`https://wa.me/${CLINIC_INFO.whatsappRaw}?text=${encodeURIComponent('Hello Dr. Abdullah, I am contacting you from the clinic website.')}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#appointment"
                   className="flex items-start space-x-2.5 text-slate-400 hover:text-emerald-400 transition-colors"
                 >
                   <span className="w-4 h-4 rounded bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold text-[10px] shrink-0 mt-0.5">W</span>
                   <div>
                     <span className="text-white hover:text-emerald-400 font-bold block">{CLINIC_INFO.whatsapp}</span>
-                    <span className="text-[11px] text-emerald-400 font-semibold uppercase block">Official WhatsApp</span>
+                    <span className="text-[11px] text-emerald-400 font-semibold uppercase block">WhatsApp (Book Appointment First)</span>
                   </div>
                 </a>
               </div>

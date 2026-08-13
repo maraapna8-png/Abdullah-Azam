@@ -82,17 +82,26 @@ export default function Contact() {
             </div>
 
             {/* Practice Hours Container */}
-            <div className="bg-gradient-to-tr from-blue-900 to-blue-850 text-white rounded-3xl p-6 sm:p-8 shadow-md">
-              <h3 className="text-base font-extrabold border-b border-white/10 pb-3 flex items-center gap-2">
-                <Clock size={18} className="text-emerald-300" />
-                Clinic Working Sessions
-              </h3>
+            <div className="bg-slate-900 border border-slate-800 text-white rounded-3xl p-6 sm:p-8 shadow-xl">
+              <div className="flex items-center justify-between border-b border-slate-800 pb-3.5">
+                <h3 className="text-base sm:text-lg font-extrabold text-white flex items-center gap-2">
+                  <Clock size={20} className="text-emerald-400" />
+                  Clinic Working Sessions
+                </h3>
+                <span className="text-[10px] sm:text-[11px] font-bold text-emerald-400 bg-emerald-950/80 border border-emerald-500/30 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                  Weekly Timings
+                </span>
+              </div>
               
-              <div className="mt-4 space-y-2.5 text-xs sm:text-sm">
+              <div className="mt-4 space-y-2.5">
                 {CLINIC_HOURS.map((hour, idx) => (
-                  <div key={idx} className="flex justify-between items-center py-1 border-b border-white/5 last:border-0">
-                    <span className="font-semibold text-blue-100">{hour.day}</span>
-                    <span className={`font-bold ${hour.closed ? 'text-red-300 uppercase tracking-wider' : 'text-emerald-300'}`}>
+                  <div key={idx} className="flex justify-between items-center py-1.5 border-b border-slate-800/60 last:border-0">
+                    <span className="font-bold text-slate-100 text-xs sm:text-sm">{hour.day}</span>
+                    <span className={`font-bold text-xs sm:text-sm px-3 py-1 rounded-lg ${
+                      hour.closed 
+                        ? 'text-rose-300 bg-rose-950/80 border border-rose-500/30 uppercase tracking-wider' 
+                        : 'text-emerald-300 bg-emerald-950/80 border border-emerald-500/30'
+                    }`}>
                       {hour.hours}
                     </span>
                   </div>
