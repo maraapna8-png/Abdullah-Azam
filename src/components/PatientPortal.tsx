@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   User,
   Lock,
+  Unlock,
   Phone,
   Mail,
   Calendar,
@@ -38,13 +39,32 @@ interface PatientPortalProps {
 }
 
 export default function PatientPortal({ onClose, onBookNewAppointment }: PatientPortalProps) {
+  // Portal Passcode Lock State (Required Passcode: 0000)
+  const [portalPasscode, setPortalPasscode] = useState('');
+  const [showPortalPasscode, setShowPortalPasscode] = useState(false);
+  const [isPasscodeVerified, setIsPasscodeVerified] = useState(() => {
+    return sessionStorage.getItem('dr_abdullah_patient_portal_unlocked') === 'true';
+  });
+  const [passcodeError, setPasscodeError] = useState('');
+
+  const handlePasscodeSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setPasscodeError('');
+    if (portalPasscode.trim() === '0000') {
+      setIsPasscodeVerified(true);
+      sessionStorage.setItem('dr_abdullah_patient_portal_unlocked', 'true');
+    } else {
+      setPasscodeError('Incorrect Passcode. Required passcode is 0000.');
+    }
+  };
+
   // Authentication State
   const [patientUser, setPatientUser] = useState<PatientUser | null>(null);
   const [authMode, setAuthMode] = useState<'login' | 'register' | 'lookup'>('login');
   
   // Login Form Inputs
   const [loginIdentifier, setLoginIdentifier] = useState('maraapna8@gmail.com');
-  const [loginPassword, setLoginPassword] = useState('1234');
+  const [loginPassword, setLoginPassword] = useState('0000');
   const [showPassword, setShowPassword] = useState(false);
   const [authError, setAuthError] = useState('');
 
@@ -274,6 +294,95 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
     window.print();
   };
 
+  // PASSCODE LOCK SCREEN (Passcode: 0000)
+  if (!isPasscodeVerified) {
+    return (
+      <div className="bg-slate-50 min-h-screen py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+        <div className="max-w-md w-full bg-white rounded-3xl shadow-2xl border border-slate-200 p-6 sm:p-8 space-y-6">
+          <div className="text-center space-y-3">
+            <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mx-auto shadow-inner">
+              <Shield size={32} />
+            </div>
+            <h1 className="text-2xl font-extrabold text-slate-900">Patient Portal Security</h1>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Enter the access passcode to open the Patient Portal.
+            </p>
+          </div>
+
+          <form onSubmit={handlePasscodeSubmit} className="space-y-4">
+            {passcodeError && (
+              <div className="p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 text-xs font-semibold flex items-center gap-2.5">
+                <AlertCircle size={16} className="shrink-0 text-rose-500" />
+                <span>{passcodeError}</span>
+              </div>
+            )}
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">
+                Access Passcode (0000)
+              </label>
+              <div className="relative">
+                <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                  <Lock size={18} />
+                </div>
+                <input
+                  type={showPortalPasscode ? 'text' : 'password'}
+                  maxLength={10}
+                  value={portalPasscode}
+                  onChange={(e) => {
+                    setPortalPasscode(e.target.value);
+                    setPasscodeError('');
+                  }}
+                  placeholder="Enter passcode (0000)"
+                  autoFocus
+                  className="w-full pl-10 pr-10 py-3.5 bg-slate-50 border border-slate-300 rounded-xl focus:bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-slate-900 font-extrabold tracking-widest text-center text-lg transition-all"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPortalPasscode(!showPortalPasscode)}
+                  className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 cursor-pointer"
+                >
+                  {showPortalPasscode ? <EyeOff size={18} /> : <Eye size={18} />}
+                </button>
+              </div>
+              <div className="mt-2 flex items-center justify-between text-xs">
+                <span className="text-slate-500">Required Passcode: <strong className="text-blue-600 font-mono">0000</strong></span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setPortalPasscode('0000');
+                    setPasscodeError('');
+                  }}
+                  className="text-blue-600 hover:text-blue-800 font-bold underline cursor-pointer"
+                >
+                  Auto-fill (0000)
+                </button>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-3.5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold rounded-xl shadow-lg shadow-blue-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+            >
+              <Unlock size={18} />
+              <span>Unlock Patient Portal</span>
+            </button>
+          </form>
+
+          <div className="pt-4 border-t border-slate-100 text-center">
+            <button
+              type="button"
+              onClick={onClose}
+              className="text-xs font-semibold text-slate-500 hover:text-slate-800 transition-colors cursor-pointer"
+            >
+              ← Return to Clinic Website
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-slate-50 min-h-screen py-8 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto space-y-6">
@@ -299,10 +408,21 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
           </div>
 
           <div className="flex items-center gap-2 self-end sm:self-auto">
+            <button
+              onClick={() => {
+                setIsPasscodeVerified(false);
+                sessionStorage.removeItem('dr_abdullah_patient_portal_unlocked');
+              }}
+              className="inline-flex items-center gap-1.5 px-3 py-2 text-xs sm:text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 rounded-xl transition-colors cursor-pointer"
+              title="Lock Patient Portal"
+            >
+              <Lock size={15} />
+              <span>Lock Portal</span>
+            </button>
             {patientUser ? (
               <button
                 onClick={() => handleSetPatientUser(null)}
-                className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-semibold text-rose-600 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-xl transition-colors"
+                className="inline-flex items-center gap-2 px-3.5 py-2 text-sm font-semibold text-rose-600 bg-rose-50 hover:bg-rose-100 border border-rose-200 rounded-xl transition-colors cursor-pointer"
               >
                 <LogOut size={16} />
                 Sign Out
@@ -310,7 +430,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
             ) : null}
             <button
               onClick={onClose}
-              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors"
+              className="inline-flex items-center gap-1.5 px-3.5 py-2 text-sm font-semibold text-slate-700 bg-slate-100 hover:bg-slate-200 rounded-xl transition-colors cursor-pointer"
             >
               Back to Main Website
             </button>
@@ -426,7 +546,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                         </button>
                       </div>
                       <p className="text-xs text-slate-500 mt-1">
-                        Default demo passcode: <code className="bg-slate-100 px-1.5 py-0.5 rounded text-blue-700 font-bold">1234</code>
+                        Default demo passcode: <code className="bg-slate-100 px-1.5 py-0.5 rounded text-blue-700 font-bold">0000</code>
                       </p>
                     </div>
 
