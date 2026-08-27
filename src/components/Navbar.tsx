@@ -59,7 +59,7 @@ export default function Navbar({ onBookClick, onViewPortal, onOpenPatientPortal,
             <div className="w-10 h-10 rounded-xl overflow-hidden border border-blue-200 shadow-sm shrink-0">
               <img
                 src={doctorImageSrc}
-                alt="Dr. Abdullah"
+                alt="Aryan Azam"
                 className="w-full h-full object-cover object-top"
                 onError={(e) => {
                   const target = e.currentTarget;
@@ -250,7 +250,7 @@ export default function Navbar({ onBookClick, onViewPortal, onOpenPatientPortal,
                 onClick={(e) => handleNavClick(e, 'about')}
                 className="text-slate-700 hover:text-blue-600 hover:bg-slate-50 px-3 py-2 rounded-lg font-medium text-base transition-colors"
               >
-                About Dr. Abdullah
+                About Aryan Azam
               </a>
               <a
                 href="#services"

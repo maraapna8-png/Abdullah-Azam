@@ -29,7 +29,7 @@ const appointmentsStore: ServerAppointment[] = [];
 
 // API Health Check
 app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok', doctor: 'Dr. Abdullah', phone: '03430277466' });
+  res.json({ status: 'ok', doctor: 'Aryan Azam', phone: '03430277466' });
 });
 
 // Serve Sitemap XML for SEO
@@ -75,15 +75,15 @@ app.post('/api/send-confirmation-email', async (req, res) => {
       return res.status(400).json({ error: 'Patient email and name are required' });
     }
 
-    const emailSubject = `Appointment Confirmation - Dr. Abdullah's Clinic (ID: ${id || 'DA-Booking'})`;
+    const emailSubject = `Appointment Confirmation - Aryan Azam Clinic (ID: ${id || 'AA-Booking'})`;
     const emailBodyText = `
 Dear ${patientName},
 
-Thank you for scheduling your medical appointment with Dr. Abdullah (General Physician & Consultant).
+Thank you for scheduling your medical appointment with Aryan Azam (General Physician & Consultant).
 
 Here are your appointment details:
 --------------------------------------------------
-Booking Reference ID: ${id || 'DA-Registered'}
+Booking Reference ID: ${id || 'AA-Registered'}
 Patient Name: ${patientName}
 Phone Number: ${phoneNumber}
 Registered Email: ${email}
@@ -93,7 +93,7 @@ Medical Notes: ${message || 'General Consultation'}
 --------------------------------------------------
 
 Clinic Location:
-Dr. Abdullah Medical Clinic
+Aryan Azam Medical Clinic
 Eid Gaah Road, Dera Ismail Khan, Pakistan
 Helpline / WhatsApp: 03430277466
 
@@ -102,7 +102,7 @@ Please arrive 10 minutes prior to your allocated session with any previous diagn
 If you need to reschedule or have urgent queries, contact us on WhatsApp at 03430277466.
 
 Warm regards,
-Dr. Abdullah & Clinical Team
+Aryan Azam & Clinical Team
 Eid Gaah Road, Dera Ismail Khan, Pakistan
 `;
 
@@ -137,7 +137,7 @@ app.post('/api/book-appointment', (req, res) => {
       return res.status(400).json({ error: 'Missing required appointment fields' });
     }
 
-    const id = 'DA-' + Math.floor(1000 + Math.random() * 9000);
+    const id = 'AA-' + Math.floor(1000 + Math.random() * 9000);
     const newAppointment: ServerAppointment = {
       id,
       patientName: patientName.trim(),
@@ -156,7 +156,7 @@ app.post('/api/book-appointment', (req, res) => {
     // Format WhatsApp message for doctor number 03430277466
     const doctorWhatsAppNumber = '923430277466'; // International format for 03430277466
     const whatsappText = encodeURIComponent(
-      `🏥 *NEW APPOINTMENT BOOKING - Dr. Abdullah Clinic*\n` +
+      `🏥 *NEW APPOINTMENT BOOKING - Aryan Azam Clinic*\n` +
       `----------------------------------------\n` +
       `🆔 *Token ID:* ${id}\n` +
       `👤 *Patient Name:* ${newAppointment.patientName}\n` +

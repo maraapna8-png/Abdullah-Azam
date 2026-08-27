@@ -179,7 +179,7 @@ export default function DoctorDashboard({ onClose }: DoctorDashboardProps) {
             </div>
             <h3 className="text-2xl font-extrabold text-blue-950 tracking-tight">Doctor Portal Secure Sign-In</h3>
             <p className="text-xs text-slate-500 font-medium">
-              Access Dr. Abdullah's clinic scheduling log, manage appointments, and configure announcements.
+              Access Aryan Azam's clinic scheduling log, manage appointments, and configure announcements.
             </p>
           </div>
 
@@ -336,7 +336,7 @@ export default function DoctorDashboard({ onClose }: DoctorDashboardProps) {
               type="text"
               value={announcementInput}
               onChange={(e) => setAnnouncementInput(e.target.value)}
-              placeholder="e.g. Note: Dr. Abdullah's clinic will remain closed on Friday, 24th July for conference attendance."
+              placeholder="e.g. Note: Aryan Azam's clinic will remain closed on Friday, 24th July for conference attendance."
               className="flex-grow px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 text-sm font-semibold focus:outline-none focus:bg-white focus:ring-2 focus:ring-blue-100 transition-all"
             />
             <div className="flex items-center gap-2">
@@ -463,7 +463,7 @@ export default function DoctorDashboard({ onClose }: DoctorDashboardProps) {
                         <span className="block text-slate-400 text-[10px] font-semibold">{b.email}</span>
                         <div className="flex items-center gap-1.5 pt-0.5">
                           <a
-                            href={`https://wa.me/${b.phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hello ${b.patientName}, regarding your appointment (ID: ${b.id}) with Dr. Abdullah...`)}`}
+                            href={`https://wa.me/${b.phoneNumber.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`Hello ${b.patientName}, regarding your appointment (ID: ${b.id}) with Aryan Azam...`)}`}
                             target="_blank"
                             rel="noopener noreferrer"
                             className="inline-flex items-center gap-1 text-[10px] bg-emerald-50 text-emerald-700 hover:bg-emerald-100 px-2 py-0.5 rounded font-bold transition-colors"
@@ -472,7 +472,7 @@ export default function DoctorDashboard({ onClose }: DoctorDashboardProps) {
                             <MessageCircle size={10} /> WhatsApp
                           </a>
                           <a
-                            href={`mailto:${b.email}?subject=${encodeURIComponent(`Appointment Status ID ${b.id} - Dr. Abdullah Clinic`)}&body=${encodeURIComponent(`Dear ${b.patientName},\n\nRegarding your appointment slot on ${b.preferredDate} (${b.preferredTime})...\n\nBest regards,\nDr. Abdullah Clinic`)}`}
+                            href={`mailto:${b.email}?subject=${encodeURIComponent(`Appointment Status ID ${b.id} - Aryan Azam Clinic`)}&body=${encodeURIComponent(`Dear ${b.patientName},\n\nRegarding your appointment slot on ${b.preferredDate} (${b.preferredTime})...\n\nBest regards,\nAryan Azam Clinic`)}`}
                             className="inline-flex items-center gap-1 text-[10px] bg-blue-50 text-blue-700 hover:bg-blue-100 px-2 py-0.5 rounded font-bold transition-colors"
                             title="Send Email to patient"
                           >

@@ -118,7 +118,7 @@ export default function Contact() {
               {/* Map Iframe */}
               <div className="relative w-full flex-grow h-full min-h-[300px]">
                 <iframe
-                  title="Dr. Abdullah Clinic Location Map"
+                  title="Aryan Azam Clinic Location Map"
                   src={mapUrl}
                   width="100%"
                   height="100%"

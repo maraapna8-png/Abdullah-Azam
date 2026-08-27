@@ -77,7 +77,7 @@ export default function BookingForm({ preselectedService, onBookingSuccess }: Bo
 
   const createWhatsAppText = (apt: Appointment) => {
     const text = 
-      `🏥 *NEW APPOINTMENT BOOKING - Dr. Abdullah Clinic*\n` +
+      `🏥 *NEW APPOINTMENT BOOKING - Aryan Azam Clinic*\n` +
       `----------------------------------------\n` +
       `🆔 *Token ID:* ${apt.id}\n` +
       `👤 *Patient Name:* ${apt.patientName}\n` +
@@ -183,7 +183,7 @@ export default function BookingForm({ preselectedService, onBookingSuccess }: Bo
               Schedule Your Consultation Today
             </h2>
             <p className="text-slate-600 leading-relaxed font-medium text-sm sm:text-base">
-              Complete the form to register your consultation details. Once your appointment is booked, you can instantly notify Dr. Abdullah on WhatsApp (03430277466).
+              Complete the form to register your consultation details. Once your appointment is booked, you can instantly notify Aryan Azam on WhatsApp (03430277466).
             </p>
 
             {/* Notifications Info Box */}
@@ -217,7 +217,7 @@ export default function BookingForm({ preselectedService, onBookingSuccess }: Bo
                   2
                 </div>
                 <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                  <strong>Notify on WhatsApp:</strong> Click the WhatsApp button on the confirmation screen to send pre-filled details to Dr. Abdullah (03430277466).
+                  <strong>Notify on WhatsApp:</strong> Click the WhatsApp button on the confirmation screen to send pre-filled details to Aryan Azam (03430277466).
                 </p>
               </div>
               <div className="flex items-start space-x-3">

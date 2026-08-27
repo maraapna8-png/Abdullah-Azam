@@ -1,25 +1,25 @@
 import { Service, Feature, Testimonial, FAQItem, ClinicHours, PatientUser, MedicalRecord } from './types';
 
 export const CLINIC_INFO = {
-  doctorName: "Dr. Abdullah",
+  doctorName: "Aryan Azam",
   title: "General Physician & Consultant",
   tagline: "Providing Quality Healthcare with Compassion and Excellence.",
   phone: "03430277466",
   whatsapp: "03430277466",
   whatsappRaw: "923430277466",
-  email: "dr.abdullah.dik@gmail.com",
+  email: "aryanazam.dik@gmail.com",
   address: "Eid Gaah Road, Dera Ismail Khan, Pakistan",
-  aboutShort: "Dr. Abdullah is a highly dedicated and experienced healthcare professional committed to providing top-quality, compassionate medical care to families in Dera Ismail Khan and surrounding regions. With a focus on preventive wellness, accurate diagnostic assessments, and personalized therapy, Dr. Abdullah ensures every patient receives custom-tailored medical attention in a friendly, trusting atmosphere.",
+  aboutShort: "Aryan Azam is a highly dedicated and experienced healthcare professional committed to providing top-quality, compassionate medical care to families in Dera Ismail Khan and surrounding regions. With a focus on preventive wellness, accurate diagnostic assessments, and personalized therapy, Aryan Azam ensures every patient receives custom-tailored medical attention in a friendly, trusting atmosphere.",
   aboutLong: [
-    "With years of diverse experience in primary care and general medicine, Dr. Abdullah stands as a trusted family physician committed to the medical welfare of his patients. His medical practice combines cutting-edge clinical knowledge with a traditional, patient-centered bedside manner.",
-    "Dr. Abdullah believes that true healing goes beyond prescribing medicines. It requires taking the time to listen, conducting meticulous diagnostic evaluations, focusing heavily on preventive care, and educating patients on healthy lifestyle practices.",
-    "Whether managing chronic conditions such as hypertension and diabetes, diagnosing acute symptoms, or guiding patients through general health optimization and wellness regimens, Dr. Abdullah's clinic is equipped with the facilities and warm atmosphere to make your medical experience reassuring and highly effective."
+    "With years of diverse experience in primary care and general medicine, Aryan Azam stands as a trusted family physician committed to the medical welfare of his patients. His medical practice combines cutting-edge clinical knowledge with a traditional, patient-centered bedside manner.",
+    "Aryan Azam believes that true healing goes beyond prescribing medicines. It requires taking the time to listen, conducting meticulous diagnostic evaluations, focusing heavily on preventive care, and educating patients on healthy lifestyle practices.",
+    "Whether managing chronic conditions such as hypertension and diabetes, diagnosing acute symptoms, or guiding patients through general health optimization and wellness regimens, Aryan Azam's clinic is equipped with the facilities and warm atmosphere to make your medical experience reassuring and highly effective."
   ],
   stats: [
     { label: "Years of Experience", value: "10+" },
     { label: "Happy Patients Served", value: "15,000+" },
     { label: "Recovery Rate", value: "98.5%" },
-    { label: "Acreedited Clinic Facilities", value: "Modern" }
+    { label: "Accredited Clinic Facilities", value: "Modern" }
   ]
 };
 
@@ -36,7 +36,7 @@ export const SERVICES: Service[] = [
     title: "Medical Consultation",
     description: "Detailed, one-on-one evaluations to discuss complex or persistent symptoms, answer questions, and draft recovery paths.",
     iconName: "UserRoundCheck",
-    fullDetails: "Have questions about unexplained symptoms, family health histories, or complex conditions? Our thorough consultation services give you the dedicated face-to-face time you need with Dr. Abdullah to investigate issues deeply and gain absolute clarity."
+    fullDetails: "Have questions about unexplained symptoms, family health histories, or complex conditions? Our thorough consultation services give you the dedicated face-to-face time you need with Aryan Azam to investigate issues deeply and gain absolute clarity."
   },
   {
     id: "diagnosis-treatment",
@@ -57,7 +57,7 @@ export const SERVICES: Service[] = [
     title: "Health Advice",
     description: "Professional medical advice, mental wellness guidance, dietary recommendations, and long-term health education.",
     iconName: "HeartPulse",
-    fullDetails: "Medical science is as much about teaching as it is about treating. Dr. Abdullah provides evidence-backed, easily understandable advice regarding cardiac care, high-stress management, nutrition, sleep optimization, and age-specific wellbeing."
+    fullDetails: "Medical science is as much about teaching as it is about treating. Aryan Azam provides evidence-backed, easily understandable advice regarding cardiac care, high-stress management, nutrition, sleep optimization, and age-specific wellbeing."
   },
   {
     id: "follow-up",
@@ -112,14 +112,14 @@ export const TESTIMONIALS: Testimonial[] = [
     id: "t1",
     name: "Muhammad Rizwan",
     role: "Local Business Owner",
-    review: "Dr. Abdullah is hands down the best general physician in Dera Ismail Khan. He listens with utmost patience, never rushes the appointment, and explains the diagnosis so clearly. His treatment for my high blood pressure worked miracles.",
+    review: "Aryan Azam is hands down the best general physician in Dera Ismail Khan. He listens with utmost patience, never rushes the appointment, and explains the diagnosis so clearly. His treatment for my high blood pressure worked miracles.",
     rating: 5
   },
   {
     id: "t2",
     name: "Ayesha Bibi",
     role: "School Teacher",
-    review: "The clinic atmosphere is incredibly comforting and clean. Dr. Abdullah diagnosed my father's chest infection accurately when other clinics kept prescribing heavy antibiotics. Truly a compassionate and brilliant medical doctor.",
+    review: "The clinic atmosphere is incredibly comforting and clean. Aryan Azam diagnosed my father's chest infection accurately when other clinics kept prescribing heavy antibiotics. Truly a compassionate and brilliant medical doctor.",
     rating: 5
   },
   {
@@ -133,7 +133,7 @@ export const TESTIMONIALS: Testimonial[] = [
     id: "t4",
     name: "Dr. Maria Fatima",
     role: "Resident Medical Officer",
-    review: "As a fellow healthcare professional, I highly respect Dr. Abdullah's diagnostic precision and clinical methodology. He practices evidence-based medicine with excellent empathy. Highly recommended for family medical needs.",
+    review: "As a fellow healthcare professional, I highly respect Aryan Azam's diagnostic precision and clinical methodology. He practices evidence-based medicine with excellent empathy. Highly recommended for family medical needs.",
     rating: 5
   }
 ];
@@ -147,7 +147,7 @@ export const FAQS: FAQItem[] = [
   {
     id: "faq2",
     question: "What are the clinic timings?",
-    answer: "Dr. Abdullah's clinic is open Monday through Saturday. The timings are from 10:00 AM to 2:00 PM (Morning session) and 5:00 PM to 9:00 PM (Evening session). The clinic remains closed on Sundays."
+    answer: "Aryan Azam's clinic is open Monday through Saturday. The timings are from 10:00 AM to 2:00 PM (Morning session) and 5:00 PM to 9:00 PM (Evening session). The clinic remains closed on Sundays."
   },
   {
     id: "faq3",
@@ -204,7 +204,7 @@ export const INITIAL_MEDICAL_RECORDS: MedicalRecord[] = [
     patientEmail: "maraapna8@gmail.com",
     patientPhone: "03430277466",
     date: "2026-07-28",
-    doctorName: "Dr. Abdullah",
+    doctorName: "Aryan Azam",
     visitType: "Follow-up & General Consultation",
     diagnosis: "Acute Upper Respiratory Infection & Mild Blood Pressure Elevation",
     vitals: {
@@ -260,7 +260,7 @@ export const INITIAL_MEDICAL_RECORDS: MedicalRecord[] = [
     patientEmail: "maraapna8@gmail.com",
     patientPhone: "03430277466",
     date: "2026-05-15",
-    doctorName: "Dr. Abdullah",
+    doctorName: "Aryan Azam",
     visitType: "Routine Wellness & BP Review",
     diagnosis: "Essential Hypertension (Stage 1) - Well Controlled",
     vitals: {
@@ -292,4 +292,3 @@ export const INITIAL_MEDICAL_RECORDS: MedicalRecord[] = [
     ]
   }
 ];
-

@@ -27,7 +27,7 @@ export default function Services({ onBookService }: ServicesProps) {
             Comprehensive Healthcare Tailored To Your Needs
           </h2>
           <p className="text-base text-slate-600 font-medium">
-            Dr. Abdullah provides a complete spectrum of general medical practice and specialty wellness solutions designed to support your family's lasting recovery and health.
+            Aryan Azam provides a complete spectrum of general medical practice and specialty wellness solutions designed to support your family's lasting recovery and health.
           </p>
         </div>
 

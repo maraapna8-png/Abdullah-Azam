@@ -14,7 +14,7 @@ export default function Hero({ onBookClick }: HeroProps) {
       <div className="absolute inset-0 z-0">
         <img
           src={heroBgSrc}
-          alt="Dr. Abdullah Medical Clinic"
+          alt="Aryan Azam Medical Clinic"
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
           onError={(e) => {
@@ -49,7 +49,7 @@ export default function Hero({ onBookClick }: HeroProps) {
               <span className="block text-emerald-600 font-bold text-lg sm:text-xl tracking-wider uppercase mb-1">
                 Welcome to the Medical Practice of
               </span>
-              Dr. Abdullah
+              Aryan Azam
             </h1>
 
             {/* Subtitle */}
@@ -113,7 +113,7 @@ export default function Hero({ onBookClick }: HeroProps) {
                 <div className="relative rounded-2xl overflow-hidden aspect-[4/5] border border-slate-100 shadow-inner group">
                   <img
                     src={doctorImageSrc}
-                    alt="Dr. Abdullah - General Physician & Medical Consultant"
+                    alt="Aryan Azam - General Physician & Medical Consultant"
                     className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     onError={(e) => {
                       const target = e.currentTarget;
@@ -137,7 +137,7 @@ export default function Hero({ onBookClick }: HeroProps) {
                     <span className="inline-block px-2.5 py-0.5 bg-blue-600 text-[10px] font-extrabold uppercase tracking-widest rounded-md mb-1">
                       Certified Practitioner
                     </span>
-                    <h3 className="text-xl font-extrabold leading-tight">Dr. Abdullah</h3>
+                    <h3 className="text-xl font-extrabold leading-tight">{CLINIC_INFO.doctorName}</h3>
                     <p className="text-xs text-blue-200 font-medium">{CLINIC_INFO.title}</p>
                   </div>
                 </div>

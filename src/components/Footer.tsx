@@ -46,7 +46,7 @@ export default function Footer({ onViewPortal, onOpenPatientPortal }: FooterProp
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">Practice sections</h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li><a href="#home" className="hover:text-emerald-400 transition-colors">Home</a></li>
-              <li><a href="#about" className="hover:text-emerald-400 transition-colors">About Dr. Abdullah</a></li>
+              <li><a href="#about" className="hover:text-emerald-400 transition-colors">About Aryan Azam</a></li>
               <li><a href="#services" className="hover:text-emerald-400 transition-colors">Clinical Services</a></li>
               <li><a href="#why-choose-us" className="hover:text-emerald-400 transition-colors">Why Choose Us</a></li>
               <li><a href="#appointment" className="hover:text-emerald-400 transition-colors">Book Consultation</a></li>

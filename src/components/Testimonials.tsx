@@ -23,7 +23,7 @@ export default function Testimonials() {
             Trusted By Families In Dera Ismail Khan
           </h2>
           <p className="text-base text-blue-200">
-            Read professional patient experiences detailing the quality of care, detailed clinical consultations, and reliable therapeutic results under Dr. Abdullah's supervision.
+            Read professional patient experiences detailing the quality of care, detailed clinical consultations, and reliable therapeutic results under Aryan Azam's supervision.
           </p>
         </div>
 

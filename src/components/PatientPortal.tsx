@@ -402,7 +402,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                 </span>
               </div>
               <p className="text-xs sm:text-sm text-slate-500">
-                Track live appointments, view digital prescriptions & medical history with Dr. Abdullah
+                Track live appointments, view digital prescriptions & medical history with Aryan Azam
               </p>
             </div>
           </div>
@@ -816,7 +816,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                 <ul className="space-y-2.5 text-xs text-slate-600">
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
-                    <span><strong>Live Status Tracking:</strong> Real-time approval updates on your appointments with Dr. Abdullah.</span>
+                    <span><strong>Live Status Tracking:</strong> Real-time approval updates on your appointments with Aryan Azam.</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
@@ -949,7 +949,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                 }`}
               >
                 <MessageSquare size={18} />
-                Message Dr. Abdullah
+                Message Aryan Azam
               </button>
             </div>
 
@@ -1003,7 +1003,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                     </div>
                     <h3 className="text-lg font-bold text-slate-900">No appointments found</h3>
                     <p className="text-slate-500 text-xs max-w-md mx-auto">
-                      You don't have any appointments matching status "{statusFilter}". Book a new consultation with Dr. Abdullah or check another filter.
+                      You don't have any appointments matching status "{statusFilter}". Book a new consultation with Aryan Azam or check another filter.
                     </p>
                     <button
                       type="button"
@@ -1069,7 +1069,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
 
                             <div className="flex items-center gap-2 text-slate-600">
                               <Stethoscope size={16} className="text-emerald-600 shrink-0" />
-                              <span>Doctor: <strong>Dr. Abdullah</strong> (General Physician)</span>
+                              <span>Doctor: <strong>Aryan Azam</strong> (General Physician)</span>
                             </div>
 
                             <div className="flex items-center gap-2 text-slate-600">
@@ -1122,7 +1122,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                     Consultation Records & Prescriptions
                   </h3>
                   <p className="text-xs text-slate-500">
-                    Official clinical notes, vitals history, and digital prescriptions issued by Dr. Abdullah.
+                    Official clinical notes, vitals history, and digital prescriptions issued by Aryan Azam.
                   </p>
                 </div>
 
@@ -1131,7 +1131,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                     <FileText size={36} className="text-slate-400 mx-auto" />
                     <h4 className="font-bold text-slate-800">No medical history records yet</h4>
                     <p className="text-xs text-slate-500 max-w-md mx-auto">
-                      Your medical records and digital prescriptions will automatically appear here following your consultation with Dr. Abdullah.
+                      Your medical records and digital prescriptions will automatically appear here following your consultation with Aryan Azam.
                     </p>
                   </div>
                 ) : (
@@ -1297,7 +1297,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                 <div className="border-b border-slate-200 pb-4">
                   <h3 className="text-xl font-bold text-slate-900">Patient Medical Profile</h3>
                   <p className="text-xs text-slate-500 mt-1">
-                    Your personal health profile synced with Dr. Abdullah's clinic records.
+                    Your personal health profile synced with Aryan Azam's clinic records.
                   </p>
                 </div>
 
@@ -1377,7 +1377,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
             {activeTab === 'support' && (
               <div className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
                 <div className="border-b border-slate-200 pb-4">
-                  <h3 className="text-xl font-bold text-slate-900">Direct Message to Dr. Abdullah</h3>
+                  <h3 className="text-xl font-bold text-slate-900">Direct Message to Aryan Azam</h3>
                   <p className="text-xs text-slate-500 mt-1">
                     Have a non-urgent query about your prescription or recovery? Send a note directly to the clinic team.
                   </p>
@@ -1386,7 +1386,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                 {msgSentSuccess && (
                   <div className="p-4 bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm font-semibold rounded-2xl flex items-center gap-3">
                     <CheckCircle2 size={20} className="text-emerald-600 shrink-0" />
-                    <span>Your message has been received by Dr. Abdullah's clinic desk. We will get back to you shortly!</span>
+                    <span>Your message has been received by Aryan Azam's clinic desk. We will get back to you shortly!</span>
                   </div>
                 )}
 
@@ -1400,7 +1400,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                       required
                       value={doctorMsg}
                       onChange={(e) => setDoctorMsg(e.target.value)}
-                      placeholder="e.g. Doctor Abdullah, I had a quick question regarding the timing for Tab. Augmentin..."
+                      placeholder="e.g. Doctor Aryan Azam, I had a quick question regarding the timing for Tab. Augmentin..."
                       className="w-full p-4 bg-slate-50 border border-slate-300 rounded-2xl text-slate-900 text-sm focus:ring-2 focus:ring-blue-500 focus:bg-white"
                     ></textarea>
                   </div>
@@ -1415,7 +1415,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
                     </button>
 
                     <a
-                      href={`https://wa.me/${CLINIC_INFO.whatsappRaw}?text=Hello%20Dr.%20Abdullah%2C%20I%20am%20${encodeURIComponent(patientUser.fullName)}%20(Patient%20ID%20${patientUser.id}).`}
+                      href={`https://wa.me/${CLINIC_INFO.whatsappRaw}?text=Hello%20Aryan%20Azam%2C%20I%20am%20${encodeURIComponent(patientUser.fullName)}%20(Patient%20ID%20${patientUser.id}).`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl shadow-md transition-colors flex items-center justify-center gap-2 text-sm"
@@ -1443,7 +1443,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
               <div className="w-12 h-12 bg-blue-100 text-blue-700 rounded-2xl flex items-center justify-center mx-auto mb-2 font-bold">
                 <Stethoscope size={24} />
               </div>
-              <h3 className="font-extrabold text-slate-900 text-lg">Dr. Abdullah's Clinic</h3>
+              <h3 className="font-extrabold text-slate-900 text-lg">Aryan Azam's Clinic</h3>
               <p className="text-xs text-slate-500">{CLINIC_INFO.address}</p>
             </div>
 
@@ -1500,7 +1500,7 @@ export default function PatientPortal({ onClose, onBookNewAppointment }: Patient
             {/* Header */}
             <div className="flex justify-between items-start border-b-2 border-slate-900 pb-4">
               <div>
-                <h3 className="text-2xl font-black text-slate-900">Dr. Abdullah</h3>
+                <h3 className="text-2xl font-black text-slate-900">Aryan Azam</h3>
                 <p className="text-xs font-bold text-blue-700">{CLINIC_INFO.title}</p>
                 <p className="text-[11px] text-slate-500 mt-1">{CLINIC_INFO.address} • Ph: {CLINIC_INFO.phone}</p>
               </div>
