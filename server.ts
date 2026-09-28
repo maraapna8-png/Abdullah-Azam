@@ -55,8 +55,8 @@ app.get('/robots.txt', (req, res) => {
   res.send(`User-agent: *\nAllow: /\n\nSitemap: https://drabdullah.netlify.app/sitemap.xml\n`);
 });
 
-// Serve Google Search Console Verification File
-app.get('/googlec8150da76f89cd8b.html', (req, res) => {
+// Serve Google Search Console Verification File (both standard and renamed variant)
+app.get(['/googlec8150da76f89cd8b.html', '/googlec8150da76f89cd8b (1).html', '/googlec8150da76f89cd8b%20(1).html'], (req, res) => {
   res.header('Content-Type', 'text/html');
   res.send(`google-site-verification: googlec8150da76f89cd8b.html`);
 });
